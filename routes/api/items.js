@@ -13,8 +13,6 @@ router.get('/', (req, res) => {
 
 
 router.post('/', (req, res) => {
-    console.log(req.body.email);
-    console.log(req.body.password);
     const newItem = new Item({
         email: req.body.email,
 	    password: req.body.password
