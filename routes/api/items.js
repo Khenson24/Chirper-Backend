@@ -3,9 +3,6 @@ const router = express.Router();
 
 const Item = require('../../models/items');
 
-var a = window.document.getElementById('email').value
-var b = window.document.getElementById('password').value
-
 router.get('/', (req, res) => {
     Item.find()
         .sort({ date: -1})
