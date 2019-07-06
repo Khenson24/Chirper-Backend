@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import Nav from './Nav';
 import Feed from "./Feed"
-// import Chirp from './Chirp';
+import Login from "./Login";
+import Home from "./Home";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
@@ -11,11 +12,15 @@ function App() {
       <div className="blah">
         <Nav />
         <Switch>
-        <Route path="/Feed" component={Feed}/>
+        <Route path="/" exact component={Home}/>
+        </Switch>        
+        <Switch>
+        <Route path="/Login" component={Login}/>
         </Switch>
-        <h1>WELCOME TO CHIRPER</h1>
-        <input placeholder="email"/>  <button>submit</button><br></br>
-        <input placeholder="password"/>  <button>submit</button>        
+        
+        <Switch>
+        <Route path="/Feed" component={Feed}/>
+        </Switch>       
       </div>
     </Router>
   );

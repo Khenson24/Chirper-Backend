@@ -3,6 +3,9 @@ const router = express.Router();
 
 const Item = require('../../models/items');
 
+var a = window.document.getElementById('email').value
+var b = window.document.getElementById('password').value
+
 router.get('/', (req, res) => {
     Item.find()
         .sort({ date: -1})
@@ -10,10 +13,14 @@ router.get('/', (req, res) => {
 
 });
 
+
+
 router.post('/', (req, res) => {
+    console.log(req.body.email);
+    console.log(req.body.password);
     const newItem = new Item({
         email: req.body.email,
-        password: req.body.password
+	    password: req.body.password
     });
 
     newItem.save().then(item => res.json(item));

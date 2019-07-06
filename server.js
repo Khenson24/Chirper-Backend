@@ -8,8 +8,9 @@ const items = require('./routes/api/items');
 
 
 const app = express();
-
+app.use(express.json());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true}));
 
 const db = require('./keys').mongoURI;
 

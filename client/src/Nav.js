@@ -6,11 +6,14 @@ function Nav(){
     return(
         <nav className="nav">
             <ul>
-                <Link to="/App">
+                <Link to="/">
                 <li>Home</li>
                 </Link>
                 <Link to="/Feed">
                 <li>Feed</li>
+                </Link>
+                <Link to="/Login">
+                <li>Login</li>
                 </Link>
             </ul>
         </nav>

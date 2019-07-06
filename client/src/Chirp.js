@@ -1,15 +1,48 @@
-import React from 'react';
+import React, { Component } from 'react';
+import './App.css';
 
+class Chirp extends Component {
 
-
-function Chirp(props){
-    return(
-        <div className="chirp">
-        <name>{props.name}</name>
-        <p>{props.message}</p>
-        <h3>{props.likes}</h3>
-        </div>
-    )
-}
+    constructor(props) {
+      super(props);
+      this.state = {
+        items: [],
+        isLoaded: false,
+      }
+    }
+   
+    componentDidMount() {
+      fetch('/api/items')
+        .then(res => res.json())
+        .then(json => {
+          this.setState({
+            isLoaded: true,
+            items: json,
+          })
+        })
+    }
+   
+    render() {
+   
+      var { isLoaded, items } = this.state;
+   
+      if (!isLoaded) {
+        return <div>Loading...</div>;
+      }
+      else {
+        return (
+   
+          <div>
+            {items.map(items => (
+                <div className="chirp" key={items.id}>
+                <p>{items.email}</p>
+                </div>
+            ))}
+          </div>
+   
+        )
+      }
+    }
+   }
 
 export default Chirp;
